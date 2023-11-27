@@ -33,3 +33,19 @@ create table product (
         status varchar(20),
         primary key(id)
 );
+
+--//createa bill table
+
+create table bill(
+        id int not null auto_increment,
+        uuid varchar(200) not null,
+        name varchar(250) not null,
+        contactNumber varchar(20),
+        email varchar(50),
+        paymentMethod varchar(50) not null,
+        total int not null,
+        productDetails json default null,
+        createdBy varchar(255) not null,
+        primary key(id)
+
+);
