@@ -1,9 +1,7 @@
 <html>
     <head>
         <style>
-            h3{
-                text-align: center;
-            }
+           
             table{
                 font-family: Arial, Helvetica, sans-serif;
                 border-collapse: collapse;
@@ -20,16 +18,16 @@
         </style>
     </head>
     <body>
-        <h3> Cafe Management System</h3>
+        <h3 style="text-align:center "> Cafe Management System</h3>
         <table>
             <tr>
-                <th>Name : <% = name %></th>
-                <th>Email : <% = email %></th>
+                <th>Name : <%= name %></th>
+                <th>Email : <%= email %></th>
              </tr>
 
             <tr>
-                <th>Contact Number : <% = contactNumber %></th>
-                <th>Payemnt Method : <% = paymentMethod %></th>
+                <th>Contact Number : <%= contactNumber %></th>
+                <th>Payemnt Method : <%= paymentMethod %></th>
 
             </tr>
         </table>
@@ -50,11 +48,12 @@
                         <td><%= product.category %></td>
                         <td><%= product.quantity %></td>
                         <td><%= product.price %></td>
-                        <td>< product.total %></td>
+                        <td><%= product.total %></td>
                     </tr>
                     <% }); %>
                     <% } %>
         </table>
-        <h3>Total : <% = %></h3>
+        <h3>Total : <%= totalAmount%></h3>
+        <h3>Thank you for visting. Please visit again!!</h3>
     </body>
 </html>

@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const { query } = require("express");
+
 const db = require("../db/config");
 
 
