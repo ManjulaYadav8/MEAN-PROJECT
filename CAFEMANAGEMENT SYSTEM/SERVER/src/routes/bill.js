@@ -4,9 +4,10 @@ const router = express.Router();
 const auth = require ("../services/authentication");
 
 
-const { generateReport } = require("../controllers/bill");
+const { generateReport, getPdf } = require("../controllers/bill");
 
-router.post("/generateBill",auth.authenticateToken,generateReport)
+router.post("/generateReport",auth.authenticateToken,generateReport);
+router.post("/getPdf",auth.authenticateToken,getPdf)
 
 
 module.exports=router;
