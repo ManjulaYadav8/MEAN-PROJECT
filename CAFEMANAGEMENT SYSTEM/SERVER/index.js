@@ -19,12 +19,15 @@ const userRoute= require('./src/routes/user');
 const categoryRoute=require("./src/routes/category");
 const productRoute=require("./src/routes/product");
 const billRoute=require("./src/routes/bill");
+const dashboard = require("./src/routes/dashboard");
 
 
 app.use('/', userRoute);
 app.use('/',categoryRoute);
 app.use('/',productRoute);
-app.use('/',billRoute)
+app.use('/',billRoute);
+
+app.use("/",dashboard)
 
 
 

@@ -30,7 +30,7 @@ exports.generateReport = (req,res) =>{
 
         }
         const filepath=path.join(__dirname,"report.ejs")
-        ejs.renderFile(filepath,payload,(err,html)=>{
+        ejs.renderFile(filepath,payload,(err,html)=>{ 
             if(err){
                return res.status(500).json(err)
             }
@@ -86,5 +86,41 @@ exports.getPdf = (req,res) =>{
 
     // const pdfPath="",
 
+}
+
+exports.getBills = (req,res) =>{
+
+    let getBillsQuery =`select * from bill order by id DESC`;
+
+    db.query(getBillsQuery,(err,result)=>{
+        if(!err){
+            return res.status(200).json(result)
+        }
+        else{
+            return res.status(500).json(err)
+        }
+    })
+
+}
+
+exports.deleteBillById = (req,res) =>{
+     let billId = req.params.id;
+
+     let deleteQuery = `delete from bill where id=?`;
+
+     db.query(deleteQuery,[billId],(err,result)=>{
+        if(!err){
+            console.log("delete bill res-->",result)
+            if(result.affectedRows==0){
+                return res.status(404).json({message:"Bill Id does not found"});
+            }
+            else{
+                return res.status(200).json({message:"Bill Deleted Successfully."})
+            }
+        }
+        else{
+            return res.status(500).json(err)
+        }
+     })
 }
 
